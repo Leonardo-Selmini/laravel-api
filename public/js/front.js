@@ -1920,6 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   data: function data() {
@@ -1932,6 +1933,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/api/posts').then(function (response) {
       // handle success
+      console.log(response.data);
       _this.posts = response.data;
     });
   }
@@ -3068,6 +3070,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("a", { attrs: { href: "/login" } }, [_vm._v("Private area")]),
+    _vm._v(" "),
     _c("h1", [_vm._v("Posts List")]),
     _vm._v(" "),
     _c(

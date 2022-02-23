@@ -1,5 +1,6 @@
 <template>
   <div>
+    <a href="/login">Private area</a>
     <h1>Posts List</h1>
     <ul>
       <li v-for="post in posts" :key="post.id">
@@ -22,6 +23,7 @@ export default {
     axios.get('/api/posts')
     .then( (response) => {
       // handle success
+      console.log(response.data);
       this.posts = response.data;
   })
   }
