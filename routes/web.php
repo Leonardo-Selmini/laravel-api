@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 // Area privata - Backoffice
@@ -28,3 +24,7 @@ Route::prefix("admin")->namespace("Admin")->middleware("auth")->group(function()
   Route::resource("tags", "TagController");
 });
 
+// Area Pubblica - Frontoffice - CatchAll
+Route::get("{any?}", function() {
+  return view("welcome");
+})->where("any", ".*");

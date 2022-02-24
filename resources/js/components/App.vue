@@ -1,34 +1,30 @@
 <template>
   <div>
-    <a href="/login">Private area</a>
-    <h1>Posts List</h1>
-    <ul>
-      <li v-for="post in posts" :key="post.id">
-        <h3>{{post.title}}</h3>
-        <p>{{post.content}}</p>
-      </li>
-    </ul>
+    <Header></Header>
+    <Main></Main>
   </div>
 </template>
 
+
+
 <script>
+import Header from "./Header.vue";
+import Main from "./Main.vue";
+
 export default {
   name: "App",
-  data(){
-    return {
-      posts: [],
-    }
+  // data(){
+  //   return {
+  //   }
+  // },
+  components: {
+    Main,
+    Header
   },
-  created(){
-    axios.get('/api/posts')
-    .then( (response) => {
-      // handle success
-      console.log(response.data);
-      this.posts = response.data;
-  })
-  }
 }
 </script>
+
+
 
 <style lang="scss">
 * {
